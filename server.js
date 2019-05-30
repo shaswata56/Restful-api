@@ -14,6 +14,7 @@ app.use(BodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 app.use(securedRouter.routes()).use(securedRouter.allowedMethods());
 app.use(jwt.errorHandler()).use(jwt.jwt());
+securedRouter.use(jwt.errorHandler()).use(jwt.jwt());
 
 
 securedRouter.get("/heroes", async (res) => {
